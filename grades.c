@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //for clear screen lang
 
+//ito yong struct ng students keme
 struct students {
 
     char name[20];
@@ -9,6 +10,7 @@ struct students {
 
 };
 
+//inputng struct yong tatlo na hinihingi
 void getGrades(const struct students *student) {
 
     printf("\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
@@ -26,6 +28,7 @@ void getGrades(const struct students *student) {
 
 }
 
+//dito na yong computation pati yong paglagay ng data sa file na record.txt
 void computeGrades(const struct students *student) {
 
     system("cls");
@@ -60,9 +63,10 @@ void computeGrades(const struct students *student) {
 
 }
 
+//ito yong output sa last part yong required na output
 void openData() {
 
-    system("cls");
+    system("cls"); //clear screen lang di siya necessary sa code hehe
 
     printf("\t\t\t\t\t===== STUDENT RECORDS =====\n\n");
 
@@ -92,22 +96,23 @@ int main() {
 
     struct students student;
 
-    getGrades(&student);
+    getGrades(&student); //function call yong dalawang funcrtion
     computeGrades(&student);
 
     int choice;
-
+    
+    //dito naman after marun ng dalawang function magtatanong na kung mag-eenter ng another data or nahh
     do{
     printf("\t\t[1] Yes \t [2] No\n");
     printf("\t\tDo you want to enter another data?: ");
     scanf("%d", &choice);
 
     if (choice == 2) {
-        openData();
+        openData(); //kapag nag no mara-run yong open data
     } else {
         system("cls");
         getGrades(&student);
         computeGrades(&student);
       }
-    } while(choice != 2);
+    } while(choice != 2); //kapag hindi nageequal sa 2 or no magrarun lnag siya ng enter another data churva
 }
